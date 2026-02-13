@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 16px;
-    height: 100vh;
+    min-height: 100vh;
     background: #ffc0cb;
     display: flex;
     align-items: center;
@@ -70,7 +70,7 @@ body {
     box-shadow: 0 4px -8px #ff1493;
     width: 450px;
     height: 800px;
-    z-index: 1;
+    z-index: -1;
     left: 0;
     top: 0;
 }
@@ -85,4 +85,7 @@ audio {
     display: flex;
     margin-left: 75px;
     margin-right: 100px;
+}
+html, body {
+    overflow-y: auto;
 }
