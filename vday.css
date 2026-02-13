@@ -6,62 +6,73 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: sans-serif;
 }
 
+/* CARD CONTAINER */
 .valentines_card {
-    position: relative;
     width: 90vw;
-    max-width: 450px;
-    height: 600px;
-    transform-style: preserve-3d;
-    transition: transform 1s;
-    perspective: 2500px;
+    max-width: 400px;
+    height: 550px;
+    perspective: 2000px;
     cursor: pointer;
 }
 
-.valentines_card.open {
+/* INNER WRAPPER (FOR FLIP) */
+.card_inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+/* FLIP WHEN OPEN */
+.valentines_card.open .card_inner {
     transform: rotateY(180deg);
 }
 
+/* FRONT & BACK SIDES */
 .front_card,
 .inside_card {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
-    top: 0;
-    left: 0;
-    padding: 16px;
+    background: whitesmoke;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(255, 20, 147, 0.4);
+    padding: 18px;
     box-sizing: border-box;
-    background-color: whitesmoke;
+    backface-visibility: hidden;
+    overflow-y: auto;
     text-align: center;
-    box-shadow: 0 4px 8px #ff1493;
 }
 
+/* BACK SIDE ROTATION */
 .inside_card {
     transform: rotateY(180deg);
 }
 
+/* IMAGES */
 .front_img,
 .inside_img {
     width: 80%;
-    margin: 20px auto;
+    margin: 15px auto;
     display: block;
+    border-radius: 8px;
 }
 
+/* TEXT STYLE */
 .front_text,
 .inside_text {
     color: #A60657;
     font-family: "Brush Script MT", cursive;
-    font-size: 18px;
+    font-size: 16px;
 }
 
+/* AUDIO PLAYER */
 audio {
+    width: 90%;
+    margin: 10px auto;
     display: block;
-    margin: 15px auto;
-    width: 80%;
-}
-
-html, body {
-    overflow-y: auto;
 }
