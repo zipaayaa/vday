@@ -1,78 +1,85 @@
+/* BODY FULL SCREEN HP */
 body {
-    margin: 0;
-    padding: 16px;
-    min-height: 100vh;
-    background: #ffc0cb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: sans-serif;
+  margin: 0;
+  background: #ffc0cb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;   /* penting untuk HP */
+  overflow: hidden; /* no scroll */
 }
 
 /* CARD CONTAINER */
 .valentines_card {
-    width: 90vw;
-    max-width: 400px;
-    height: 550px;
-    perspective: 2000px;
-    cursor: pointer;
+  width: 90vw;
+  max-width: 380px;
+  height: 92dvh;     /* hampir full layar */
+  perspective: 2000px;
+  cursor: pointer;
 }
 
-/* INNER WRAPPER (FOR FLIP) */
+/* INNER FOR FLIP */
 .card_inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 1s;
-    transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  position: relative;
 }
 
-/* FLIP WHEN OPEN */
 .valentines_card.open .card_inner {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
-/* FRONT & BACK SIDES */
+/* FRONT & BACK */
 .front_card,
 .inside_card {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: whitesmoke;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(255, 20, 147, 0.4);
-    padding: 18px;
-    box-sizing: border-box;
-    backface-visibility: hidden;
-    overflow-y: auto;
-    text-align: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 18px;
+  background: whitesmoke;
+  box-shadow: 0 10px 25px rgba(255, 20, 147, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  box-sizing: border-box;
+  text-align: center;
 }
 
-/* BACK SIDE ROTATION */
+/* BACK SIDE */
 .inside_card {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  justify-content: space-evenly; /* susun rapi */
 }
 
-/* IMAGES */
-.front_img,
+/* FRONT IMAGE */
+.front_img {
+  width: 75%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+/* BACK IMAGE */
 .inside_img {
-    width: 80%;
-    margin: 15px auto;
-    display: block;
-    border-radius: 8px;
+  width: 65%;
+  border-radius: 12px;
 }
 
-/* TEXT STYLE */
+/* AUDIO */
+audio {
+  width: 100%;
+  margin: 8px 0;
+}
+
+/* TEXT */
 .front_text,
 .inside_text {
-    color: #A60657;
-    font-family: "Brush Script MT", cursive;
-    font-size: 16px;
-}
-
-/* AUDIO PLAYER */
-audio {
-    width: 90%;
-    margin: 10px auto;
-    display: block;
+  font-family: "Brush Script MT", cursive;
+  color: #A60657;
+  font-size: 14px;   /* kecil supaya muat 1 layar */
+  line-height: 1.4;
 }
